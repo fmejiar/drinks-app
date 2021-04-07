@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/drinksListFragment">
+
+    <fragment
+        android:id="@+id/drinksListFragment"
+        android:name="com.fmejiar.drinksapp.ui.DrinksListFragment"
+        android:label="Drinks List"
+        tools:layout="@layout/fragment_drinks_list">
+        <action
+            android:id="@+id/action_drinksListFragment_to_drinkDetailFragment"
+            app:destination="@id/drinkDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_drinksListFragment_to_favoriteDrinksListFragment"
+            app:destination="@id/favoriteDrinksListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinkDetailFragment"
+        android:name="com.fmejiar.drinksapp.ui.DrinkDetailFragment"
+        android:label="Drink Detail"
+        tools:layout="@layout/fragment_drink_detail" />
+    <fragment
+        android:id="@+id/favoriteDrinksListFragment"
+        android:name="com.fmejiar.drinksapp.ui.FavoriteDrinksListFragment"
+        android:label="Favorite Drinks List"
+        tools:layout="@layout/fragment_favorite_drinks_list" />
+</navigation>
