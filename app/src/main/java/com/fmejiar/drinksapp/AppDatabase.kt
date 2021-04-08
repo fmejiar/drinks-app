@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.domain.DrinkDao
 
-@Database(entities = [DrinkEntity::class], version = 1)
+@Database(entities = [DrinkEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun drinkDao(): DrinkDao
