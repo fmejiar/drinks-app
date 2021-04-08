@@ -34,5 +34,13 @@
         android:id="@+id/favoriteDrinksListFragment"
         android:name="com.fmejiar.drinksapp.ui.FavoriteDrinksListFragment"
         android:label="Favorite Drinks List"
-        tools:layout="@layout/fragment_favorite_drinks_list" />
+        tools:layout="@layout/fragment_favorite_drinks_list" >
+        <action
+            android:id="@+id/action_favoriteDrinksListFragment_to_drinkDetailFragment"
+            app:destination="@id/drinkDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 </navigation>

@@ -40,3 +40,10 @@ data class DrinkEntity(
     @ColumnInfo(name = "drink_has_alcohol")
     val hasAlcohol: String = "Non_Alcoholic"
 )
+
+fun List<DrinkEntity>.asDrinksList(): List<Drink> = this.map {
+    Drink(it.id, it.image, it.name, it.description, it.hasAlcohol)
+}
+
+fun Drink.asDrinkEntity(): DrinkEntity =
+    DrinkEntity(this.id, this.image, this.name, this.description, this.hasAlcohol)

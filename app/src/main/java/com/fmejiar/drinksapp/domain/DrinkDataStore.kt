@@ -1,5 +1,6 @@
 package com.fmejiar.drinksapp.domain
 
+import androidx.lifecycle.LiveData
 import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.vo.ResultType
@@ -9,6 +10,7 @@ interface DrinkDataStore {
 
     suspend fun getDrinkByName(drinkName: String): ResultType<List<Drink>>
     suspend fun insertRoomDrink(drinkEntity: DrinkEntity)
-    suspend fun getRoomFavoriteDrinksList(): ResultType<List<DrinkEntity>>
+    fun getRoomFavoriteDrinksList(): LiveData<List<Drink>>
+    suspend fun deleteRoomFavoriteDrink(drink: Drink)
 
 }

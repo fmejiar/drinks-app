@@ -37,12 +37,20 @@ class DrinksListViewModel(private val drinkRepository: DrinkRepository) : ViewMo
         }
     }
 
-    fun getRoomFavoriteDrinksList() = liveData(Dispatchers.IO) {
-        emit(ResultType.Loading)
-        try {
-            emit(drinkRepository.getRoomFavoriteDrinksList())
-        } catch (e: Exception) {
-            emit(ResultType.Failure(e))
+    fun getRoomFavoriteDrinksList() =
+        liveData<ResultType<List<Drink>>>(viewModelScope.coroutineContext + Dispatchers.IO) {
+            emit(ResultType.Loading)
+            try {
+                emitSource(
+                    drinkRepository.getRoomFavoriteDrinksList().map { ResultType.Success(it) })
+            } catch (e: Exception) {
+                emit(ResultType.Failure(e))
+            }
+        }
+
+    fun deleteRoomFavoriteDrink(drink: Drink) {
+        viewModelScope.launch {
+            drinkRepository.deleteRoomFavoriteDrink(drink)
         }
     }
 
