@@ -85,9 +85,11 @@ class FavoriteDrinksListFragment : Fragment(),
     }
 
     override fun onFavoriteDrinkClick(drink: Drink, position: Int) {
-        val bundle = Bundle()
-        bundle.putParcelable("drink", drink)
-        findNavController().navigate(R.id.action_favoriteDrinksListFragment_to_drinkDetailFragment, bundle)
+        findNavController().navigate(
+            FavoriteDrinksListFragmentDirections.actionFavoriteDrinksListFragmentToDrinkDetailFragment(
+                drink
+            )
+        )
     }
 
     override fun onFavoriteDrinkLongClick(drink: Drink, position: Int) {

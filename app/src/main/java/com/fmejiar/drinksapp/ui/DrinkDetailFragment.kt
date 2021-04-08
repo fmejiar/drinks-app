@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.fmejiar.drinksapp.AppDatabase
 import com.fmejiar.drinksapp.R
@@ -28,13 +29,14 @@ class DrinkDetailFragment : Fragment() {
     }
     private lateinit var binding: FragmentDrinkDetailBinding
     private lateinit var drink: Drink
+    private val args: DrinkDetailFragmentArgs by navArgs()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         requireArguments().let {
-            drink = it.getParcelable("drink")!!
+            drink = args.drink
         }
 
     }

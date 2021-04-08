@@ -29,12 +29,17 @@
         android:id="@+id/drinkDetailFragment"
         android:name="com.fmejiar.drinksapp.ui.DrinkDetailFragment"
         android:label="Drink Detail"
-        tools:layout="@layout/fragment_drink_detail" />
+        tools:layout="@layout/fragment_drink_detail">
+        <argument
+            android:name="drink"
+            app:argType="com.fmejiar.drinksapp.data.model.Drink"
+            app:nullable="false" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteDrinksListFragment"
         android:name="com.fmejiar.drinksapp.ui.FavoriteDrinksListFragment"
         android:label="Favorite Drinks List"
-        tools:layout="@layout/fragment_favorite_drinks_list" >
+        tools:layout="@layout/fragment_favorite_drinks_list">
         <action
             android:id="@+id/action_favoriteDrinksListFragment_to_drinkDetailFragment"
             app:destination="@id/drinkDetailFragment"
