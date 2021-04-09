@@ -31,10 +31,11 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
                 (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))
         )
     }
+    private lateinit var drinkListAdapter: DrinksListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        drinkListAdapter = DrinksListAdapter(requireContext(), this)
     }
 
     override fun onCreateView(
@@ -67,6 +68,7 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
                         DividerItemDecoration.VERTICAL
                 )
         )
+        binding.rvDrinks.adapter = drinkListAdapter
     }
 
     private fun setupDrinksSearchView() {
@@ -96,8 +98,7 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
                 }
                 is ResultType.Success -> {
                     binding.pbarDrinks.visibility = View.GONE
-                    binding.rvDrinks.adapter =
-                            DrinksListAdapter(requireContext(), result.data, this)
+                    drinkListAdapter.setDrinksList(result.data)
                 }
                 is ResultType.Failure -> {
                     binding.pbarDrinks.visibility = View.GONE
@@ -113,7 +114,7 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
 
     override fun onDrinkClick(drink: Drink, position: Int) {
         findNavController().navigate(
-            DrinksListFragmentDirections.actionDrinksListFragmentToDrinkDetailFragment(drink)
+                DrinksListFragmentDirections.actionDrinksListFragmentToDrinkDetailFragment(drink)
         )
     }
 

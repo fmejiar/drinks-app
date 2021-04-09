@@ -12,13 +12,18 @@ import androidx.recyclerview.widget.DiffUtil.DiffResult.NO_POSITION
 
 class DrinksListAdapter(
         private val context: Context,
-        private val drinksList: List<Drink>,
         private val itemClickListener: OnDrinkClickListener
-) :
-        RecyclerView.Adapter<BaseViewHolder<*>>() {
+) : RecyclerView.Adapter<BaseViewHolder<*>>() {
+
+    private var drinksList = listOf<Drink>()
 
     interface OnDrinkClickListener {
         fun onDrinkClick(drink: Drink, position: Int)
+    }
+
+    fun setDrinksList(drinksList: List<Drink>) {
+        this.drinksList = drinksList
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
