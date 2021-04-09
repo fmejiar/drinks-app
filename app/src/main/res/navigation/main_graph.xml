@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/drinksListFragment"
         android:name="com.fmejiar.drinksapp.ui.DrinksListFragment"
-        android:label="Drinks List"
+        android:label="Drinks"
         tools:layout="@layout/fragment_drinks_list">
         <action
             android:id="@+id/action_drinksListFragment_to_drinkDetailFragment"
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/favoriteDrinksListFragment"
         android:name="com.fmejiar.drinksapp.ui.FavoriteDrinksListFragment"
-        android:label="Favorite Drinks List"
+        android:label="My Favorites"
         tools:layout="@layout/fragment_favorite_drinks_list">
         <action
             android:id="@+id/action_favoriteDrinksListFragment_to_drinkDetailFragment"

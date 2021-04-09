@@ -60,12 +60,6 @@ class FavoriteDrinksListFragment : Fragment(),
 
     private fun setupFavoriteDrinksRecyclerView() {
         binding.rvFavoriteDrinks.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvFavoriteDrinks.addItemDecoration(
-            DividerItemDecoration(
-                requireContext(),
-                DividerItemDecoration.VERTICAL
-            )
-        )
         binding.rvFavoriteDrinks.adapter = favoriteDrinksListAdapter
     }
 

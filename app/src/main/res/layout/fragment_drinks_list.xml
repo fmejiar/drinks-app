@@ -1,41 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".ui.DrinksListFragment">
 
-    <Button
-        android:id="@+id/btn_go_to_favorite_drinks"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_sv_drinks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_normal"
+        android:layout_marginVertical="@dimen/margin_small"
+        app:cardCornerRadius="@dimen/search_view_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <SearchView
+            android:id="@+id/sv_drinks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            android:queryBackground="@color/transparent"
+            android:queryHint="Search drink"
+            android:searchHintIcon="@null"
+            android:searchIcon="@null" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ProgressBar
+        android:id="@+id/pbar_drinks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to favorite drinks" />
-
-    <SearchView
-        android:id="@+id/sv_drinks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <RelativeLayout
-        android:id="@+id/pbar_drinks"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
-
-    </RelativeLayout>
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_drinks"
-        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp" />
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mcv_sv_drinks" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

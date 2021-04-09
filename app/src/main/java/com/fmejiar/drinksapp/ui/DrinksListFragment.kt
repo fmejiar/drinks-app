@@ -1,16 +1,13 @@
 package com.fmejiar.drinksapp.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fmejiar.drinksapp.AppDatabase
 import com.fmejiar.drinksapp.R
@@ -35,6 +32,7 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         drinkListAdapter = DrinksListAdapter(requireContext(), this)
     }
 
@@ -57,17 +55,10 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
     private fun setupUI() {
         setupDrinksRecyclerView()
         setupDrinksSearchView()
-        setupGoToFavoriteDrinksButton()
     }
 
     private fun setupDrinksRecyclerView() {
         binding.rvDrinks.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvDrinks.addItemDecoration(
-                DividerItemDecoration(
-                        requireContext(),
-                        DividerItemDecoration.VERTICAL
-                )
-        )
         binding.rvDrinks.adapter = drinkListAdapter
     }
 
@@ -82,12 +73,6 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
                 return false
             }
         })
-    }
-
-    private fun setupGoToFavoriteDrinksButton() {
-        binding.btnGoToFavoriteDrinks.setOnClickListener {
-            findNavController().navigate(R.id.action_drinksListFragment_to_favoriteDrinksListFragment)
-        }
     }
 
     private fun setupObservers() {
@@ -110,6 +95,21 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
                 }
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.favorite_drinks -> {
+                findNavController().navigate(R.id.action_drinksListFragment_to_favoriteDrinksListFragment)
+                false
+            }
+            else -> false
+        }
     }
 
     override fun onDrinkClick(drink: Drink, position: Int) {
