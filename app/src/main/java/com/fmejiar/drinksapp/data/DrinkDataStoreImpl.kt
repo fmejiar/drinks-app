@@ -14,7 +14,7 @@ import com.fmejiar.drinksapp.vo.RetrofitApiClient
 class DrinkDataStoreImpl(private val appDatabase: AppDatabase) : DrinkDataStore {
 
     override suspend fun getDrinkByName(drinkName: String): ResultType<List<Drink>> =
-        ResultType.Success(RetrofitApiClient.webservice.getDrinksByName(drinkName).drinksList)
+        ResultType.Success(RetrofitApiClient.webservice.getDrinksByName(drinkName)?.drinksList ?: listOf())
 
     override suspend fun insertRoomDrink(drinkEntity: DrinkEntity) {
         appDatabase.drinkDao().insertFavoriteDrink(drinkEntity)

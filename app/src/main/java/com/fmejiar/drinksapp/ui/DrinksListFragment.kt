@@ -17,6 +17,9 @@ import com.fmejiar.drinksapp.databinding.FragmentDrinksListBinding
 import com.fmejiar.drinksapp.domain.DrinkRepositoryImpl
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
+import com.fmejiar.drinksapp.utils.hide
+import com.fmejiar.drinksapp.utils.show
+import com.fmejiar.drinksapp.utils.showIf
 import com.fmejiar.drinksapp.vo.ResultType
 
 class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
@@ -77,19 +80,26 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
 
     private fun setupObservers() {
         viewModel.fetchDrinksList.observe(viewLifecycleOwner, Observer { result ->
+            binding.pbarDrinks.showIf { result is ResultType.Loading }
             when (result) {
                 is ResultType.Loading -> {
-                    binding.pbarDrinks.visibility = View.VISIBLE
+                    binding.emptyContainer.root.hide()
                 }
                 is ResultType.Success -> {
-                    binding.pbarDrinks.visibility = View.GONE
+                    if (result.data.isEmpty()) {
+                        binding.rvDrinks.hide()
+                        binding.emptyContainer.root.show()
+                        return@Observer
+                    }
+                    binding.rvDrinks.show()
                     drinkListAdapter.setDrinksList(result.data)
+                    binding.emptyContainer.root.hide()
                 }
                 is ResultType.Failure -> {
                     binding.pbarDrinks.visibility = View.GONE
                     Toast.makeText(
                             requireContext(),
-                            "Ocurrío un error al traer los datos ${result.exception}",
+                            "An error occurred while fetching the data ${result.exception}",
                             Toast.LENGTH_SHORT
                     ).show()
                 }

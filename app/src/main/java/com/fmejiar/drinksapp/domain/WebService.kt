@@ -7,6 +7,6 @@ import retrofit2.http.Query
 interface WebService {
 
     @GET("search.php")
-    suspend fun getDrinksByName(@Query(value = "s") drinkName: String): DrinksResponse
+    suspend fun getDrinksByName(@Query(value = "s") drinkName: String): DrinksResponse?
 
 }
