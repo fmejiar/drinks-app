@@ -18,6 +18,7 @@ import com.fmejiar.drinksapp.databinding.FragmentFavoriteDrinksListBinding
 import com.fmejiar.drinksapp.domain.DrinkRepositoryImpl
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
+import com.fmejiar.drinksapp.utils.show
 import com.fmejiar.drinksapp.vo.ResultType
 
 class FavoriteDrinksListFragment : Fragment(),
@@ -70,6 +71,10 @@ class FavoriteDrinksListFragment : Fragment(),
 
                 }
                 is ResultType.Success -> {
+                    if (result.data.isEmpty()) {
+                        binding.emptyContainer.root.show()
+                        return@Observer
+                    }
                     favoriteDrinksListAdapter.setFavoriteDrinksList(result.data)
                 }
                 is ResultType.Failure -> {
