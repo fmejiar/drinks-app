@@ -80,12 +80,16 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
 
     private fun setupObservers() {
         viewModel.fetchDrinksList.observe(viewLifecycleOwner, Observer { result ->
-            binding.pbarDrinks.showIf { result is ResultType.Loading }
+            binding.sflDrinks.startShimmer()
+            binding.sflDrinks.showIf { result is ResultType.Loading }
             when (result) {
                 is ResultType.Loading -> {
                     binding.emptyContainer.root.hide()
+                    binding.rvDrinks.hide()
                 }
                 is ResultType.Success -> {
+                    binding.sflDrinks.stopShimmer()
+                    binding.sflDrinks.hide()
                     if (result.data.isEmpty()) {
                         binding.rvDrinks.hide()
                         binding.emptyContainer.root.show()
@@ -96,7 +100,8 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
                     binding.emptyContainer.root.hide()
                 }
                 is ResultType.Failure -> {
-                    binding.pbarDrinks.visibility = View.GONE
+                    binding.sflDrinks.stopShimmer()
+                    binding.sflDrinks.hide()
                     Toast.makeText(
                             requireContext(),
                             "An error occurred while fetching the data ${result.exception}",
