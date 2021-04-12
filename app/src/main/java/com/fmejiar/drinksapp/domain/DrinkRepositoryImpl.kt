@@ -8,17 +8,17 @@ import com.fmejiar.drinksapp.vo.ResultType
 class DrinkRepositoryImpl(private val drinkDataStore: DrinkDataStore) : DrinkRepository {
 
     override suspend fun getDrinksList(drinkName: String): ResultType<List<Drink>> =
-        drinkDataStore.getDrinkByName(drinkName)
+            drinkDataStore.getDrinkByName(drinkName)
 
-    override fun getRoomFavoriteDrinksList(): LiveData<List<Drink>> {
-        return drinkDataStore.getRoomFavoriteDrinksList()
-    }
+    override fun getRoomFavoriteDrinksList(): LiveData<List<Drink>> =
+            drinkDataStore.getRoomFavoriteDrinksList()
 
-    override suspend fun insertRoomDrink(drinkEntity: DrinkEntity) {
-        drinkDataStore.insertRoomDrink(drinkEntity)
-    }
+    override suspend fun insertRoomDrink(drinkEntity: DrinkEntity) =
+            drinkDataStore.insertRoomDrink(drinkEntity)
 
-    override suspend fun deleteRoomFavoriteDrink(drink: Drink) {
-        drinkDataStore.deleteRoomFavoriteDrink(drink)
-    }
+    override suspend fun deleteRoomFavoriteDrink(drink: Drink) =
+            drinkDataStore.deleteRoomFavoriteDrink(drink)
+
+    override suspend fun isDrinkFavorite(drink: Drink): Boolean =
+            drinkDataStore.isDrinkFavorite(drink)
 }

@@ -12,5 +12,6 @@ interface DrinkDataStore {
     suspend fun insertRoomDrink(drinkEntity: DrinkEntity)
     fun getRoomFavoriteDrinksList(): LiveData<List<Drink>>
     suspend fun deleteRoomFavoriteDrink(drink: Drink)
+    suspend fun isDrinkFavorite(drink: Drink): Boolean
 
 }

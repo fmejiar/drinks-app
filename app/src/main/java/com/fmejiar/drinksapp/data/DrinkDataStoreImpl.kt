@@ -14,16 +14,20 @@ import com.fmejiar.drinksapp.vo.RetrofitApiClient
 class DrinkDataStoreImpl(private val appDatabase: AppDatabase) : DrinkDataStore {
 
     override suspend fun getDrinkByName(drinkName: String): ResultType<List<Drink>> =
-        ResultType.Success(RetrofitApiClient.webservice.getDrinksByName(drinkName)?.drinksList ?: listOf())
+            ResultType.Success(RetrofitApiClient.webservice.getDrinksByName(drinkName)?.drinksList
+                    ?: listOf())
 
     override suspend fun insertRoomDrink(drinkEntity: DrinkEntity) {
         appDatabase.drinkDao().insertFavoriteDrink(drinkEntity)
     }
 
     override fun getRoomFavoriteDrinksList(): LiveData<List<Drink>> =
-        appDatabase.drinkDao().getAllFavoriteDrinksListWithChanges().map { it.asDrinksList() }
+            appDatabase.drinkDao().getAllFavoriteDrinksListWithChanges().map { it.asDrinksList() }
 
     override suspend fun deleteRoomFavoriteDrink(drink: Drink) {
         appDatabase.drinkDao().deleteFavoriteDrink(drink.asDrinkEntity())
     }
+
+    override suspend fun isDrinkFavorite(drink: Drink): Boolean =
+            appDatabase.drinkDao().getDrinkById(drink.id) != null
 }

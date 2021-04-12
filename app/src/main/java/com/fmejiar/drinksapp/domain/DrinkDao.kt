@@ -17,4 +17,7 @@ interface DrinkDao {
     @Delete
     suspend fun deleteFavoriteDrink(drinkEntity: DrinkEntity)
 
+    @Query("SELECT * FROM drinkTable WHERE id = :drinkId")
+    suspend fun getDrinkById(drinkId: String): DrinkEntity?
+
 }

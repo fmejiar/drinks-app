@@ -11,5 +11,6 @@ interface DrinkRepository {
     fun getRoomFavoriteDrinksList(): LiveData<List<Drink>>
     suspend fun insertRoomDrink(drinkEntity: DrinkEntity)
     suspend fun deleteRoomFavoriteDrink(drink: Drink)
+    suspend fun isDrinkFavorite(drink: Drink): Boolean
 
 }
