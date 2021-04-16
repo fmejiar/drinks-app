@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.fmejiar.drinksapp.AppDatabase
 import com.fmejiar.drinksapp.R
@@ -47,9 +48,12 @@ class DrinkDetailFragment : Fragment() {
     private lateinit var drink: Drink
     private val args: DrinkDetailFragmentArgs by navArgs()
     private var isDrinkFavorited: Boolean? = null
+    private lateinit var ingredientListAdapter: IngredientsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        ingredientListAdapter = IngredientsListAdapter(requireContext())
 
         requireArguments().let {
             drink = args.drink
@@ -104,6 +108,8 @@ class DrinkDetailFragment : Fragment() {
             updateButtonIcon()
         }
 
+        setupIngredientsRecyclerView()
+        fetchIngredients()
     }
 
     fun updateButtonIcon() {
@@ -121,6 +127,15 @@ class DrinkDetailFragment : Fragment() {
             isDrinkFavorited = viewModel.isDrinkFavorite(drink)
             updateButtonIcon()
         }
+    }
+
+    private fun setupIngredientsRecyclerView() {
+        binding.rvIngredients.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvIngredients.adapter = ingredientListAdapter
+    }
+
+    private fun fetchIngredients() {
+        ingredientListAdapter.setIngredientsList(drink.ingredients)
     }
 
 }
