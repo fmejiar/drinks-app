@@ -16,7 +16,7 @@ import com.fmejiar.drinksapp.data.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.databinding.FragmentDrinkDetailBinding
-import com.fmejiar.drinksapp.domain.DrinkRepositoryImpl
+import com.fmejiar.drinksapp.domain.*
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
 import kotlinx.coroutines.launch
@@ -25,8 +25,22 @@ class DrinkDetailFragment : Fragment() {
 
     private val viewModel by activityViewModels<DrinksListViewModel> {
         ViewModelFactory(
-                DrinkRepositoryImpl
-                (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))
+                GetDrinksByNameUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                InsertRoomDrinkUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                GetRoomFavoriteDrinksListUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                DeleteRoomFavoriteDrinkUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                VerifyRoomFavoriteDrinkUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext))))
+
         )
     }
     private lateinit var binding: FragmentDrinkDetailBinding

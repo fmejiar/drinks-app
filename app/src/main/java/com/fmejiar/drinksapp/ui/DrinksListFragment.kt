@@ -14,7 +14,7 @@ import com.fmejiar.drinksapp.R
 import com.fmejiar.drinksapp.data.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.databinding.FragmentDrinksListBinding
-import com.fmejiar.drinksapp.domain.DrinkRepositoryImpl
+import com.fmejiar.drinksapp.domain.*
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
 import com.fmejiar.drinksapp.utils.hide
@@ -27,8 +27,22 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
     private lateinit var binding: FragmentDrinksListBinding
     private val viewModel by activityViewModels<DrinksListViewModel> {
         ViewModelFactory(
-                DrinkRepositoryImpl
-                (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))
+                GetDrinksByNameUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                InsertRoomDrinkUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                GetRoomFavoriteDrinksListUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                DeleteRoomFavoriteDrinkUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                VerifyRoomFavoriteDrinkUseCase(
+                        DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext))))
+
         )
     }
     private lateinit var drinkListAdapter: DrinksListAdapter

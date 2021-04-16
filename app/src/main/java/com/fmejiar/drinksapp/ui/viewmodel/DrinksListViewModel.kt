@@ -3,12 +3,17 @@ package com.fmejiar.drinksapp.ui.viewmodel
 import androidx.lifecycle.*
 import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.data.model.DrinkEntity
-import com.fmejiar.drinksapp.domain.DrinkRepository
+import com.fmejiar.drinksapp.domain.*
 import com.fmejiar.drinksapp.vo.ResultType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class DrinksListViewModel(private val drinkRepository: DrinkRepository) : ViewModel() {
+class DrinksListViewModel(private val getDrinksByNameUseCase: GetDrinksByNameUseCase,
+                          private val insertRoomDrinkUseCase: InsertRoomDrinkUseCase,
+                          private val getRoomFavoriteDrinksListUseCase: GetRoomFavoriteDrinksListUseCase,
+                          private val deleteRoomFavoriteDrinkUseCase: DeleteRoomFavoriteDrinkUseCase,
+                          private val verifyRoomFavoriteDrinkUseCase: VerifyRoomFavoriteDrinkUseCase) : ViewModel() {
 
     private val drinkSearchName = MutableLiveData<String>()
 
@@ -24,7 +29,7 @@ class DrinksListViewModel(private val drinkRepository: DrinkRepository) : ViewMo
         liveData(Dispatchers.IO) {
             emit(ResultType.Loading)
             try {
-                emit(drinkRepository.getDrinksList(drinkSearchName))
+                emit(getDrinksByNameUseCase.invoke(drinkSearchName))
             } catch (e: Exception) {
                 emit(ResultType.Failure(e))
             }
@@ -33,7 +38,9 @@ class DrinksListViewModel(private val drinkRepository: DrinkRepository) : ViewMo
 
     fun insertRoomDrink(drinkEntity: DrinkEntity) {
         viewModelScope.launch {
-            drinkRepository.insertRoomDrink(drinkEntity)
+            withContext(Dispatchers.IO) {
+                insertRoomDrinkUseCase.invoke(drinkEntity)
+            }
         }
     }
 
@@ -42,7 +49,7 @@ class DrinksListViewModel(private val drinkRepository: DrinkRepository) : ViewMo
                 emit(ResultType.Loading)
                 try {
                     emitSource(
-                            drinkRepository.getRoomFavoriteDrinksList().map { ResultType.Success(it) })
+                            getRoomFavoriteDrinksListUseCase.invoke().map { ResultType.Success(it) })
                 } catch (e: Exception) {
                     emit(ResultType.Failure(e))
                 }
@@ -50,11 +57,13 @@ class DrinksListViewModel(private val drinkRepository: DrinkRepository) : ViewMo
 
     fun deleteRoomFavoriteDrink(drink: Drink) {
         viewModelScope.launch {
-            drinkRepository.deleteRoomFavoriteDrink(drink)
+            withContext(Dispatchers.IO) {
+                deleteRoomFavoriteDrinkUseCase.invoke(drink)
+            }
         }
     }
 
     suspend fun isDrinkFavorite(drink: Drink): Boolean =
-            drinkRepository.isDrinkFavorite(drink)
+            verifyRoomFavoriteDrinkUseCase.invoke(drink)
 
 }
