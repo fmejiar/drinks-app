@@ -50,7 +50,7 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        drinkListAdapter = DrinksListAdapter(requireContext(), this)
+        drinkListAdapter = DrinksListAdapter(this)
     }
 
     override fun onCreateView(

@@ -11,7 +11,6 @@ import com.fmejiar.drinksapp.databinding.DrinkRowBinding
 import androidx.recyclerview.widget.DiffUtil.DiffResult.NO_POSITION
 
 class DrinksListAdapter(
-        private val context: Context,
         private val itemClickListener: OnDrinkClickListener
 ) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
@@ -27,7 +26,7 @@ class DrinksListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-        val itemBinding = DrinkRowBinding.inflate(LayoutInflater.from(context), parent, false)
+        val itemBinding = DrinkRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         val holder = DrinkViewHolder(itemBinding)
 
@@ -54,7 +53,7 @@ class DrinksListAdapter(
 
         override fun bind(item: Drink) = with(binding) {
 
-            Glide.with(context)
+            Glide.with(imgDrink.context)
                     .load(item.image)
                     .centerCrop()
                     .into(imgDrink)
