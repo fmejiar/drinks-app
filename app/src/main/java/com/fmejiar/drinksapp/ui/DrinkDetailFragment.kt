@@ -98,7 +98,8 @@ class DrinkDetailFragment : Fragment() {
                                 drink.image,
                                 drink.name,
                                 drink.description,
-                                drink.hasAlcohol
+                                drink.hasAlcohol,
+                                drink.ingredients
                         )
                 )
                 Toast.makeText(requireContext(), "The drink was saved in favorites", Toast.LENGTH_SHORT)

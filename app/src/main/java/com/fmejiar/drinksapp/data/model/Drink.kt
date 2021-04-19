@@ -6,6 +6,8 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 
 @Parcelize
@@ -105,12 +107,38 @@ data class DrinkEntity(
         @ColumnInfo(name = "drink_description")
         val description: String = "",
         @ColumnInfo(name = "drink_has_alcohol")
-        val hasAlcohol: String = "Non_Alcoholic"
+        val hasAlcohol: String = "Non_Alcoholic",
+        @ColumnInfo(name = "ingredients")
+        val ingredients: MutableList<Ingredient> = mutableListOf()
 )
 
 fun List<DrinkEntity>.asDrinksList(): List<Drink> = this.map {
-    Drink(it.id, it.image, it.name, it.description, it.hasAlcohol)
+    Drink(it.id, it.image, it.name, it.description, it.hasAlcohol, ingredients = it.ingredients)
 }
 
 fun Drink.asDrinkEntity(): DrinkEntity =
         DrinkEntity(this.id, this.image, this.name, this.description, this.hasAlcohol)
+
+/*class IngredientsTypeConverter {
+
+   @TypeConverter
+   fun toIngredientList(value: String): MutableList<Ingredient> {
+       val listType = object : TypeToken<MutableList<Ingredient>>(){}.type
+       return Gson().fromJson(value, listType)
+   }
+
+   @TypeConverter
+   fun fromIngredientList(ingredientList: MutableList<Ingredient>): String {
+       return Gson().toJson(ingredientList)
+   }
+}*/
+
+class IngredientsTypeConverter {
+
+        @TypeConverter
+        fun jsonToList(value: String): List<Ingredient> = Gson().fromJson(value, Array<Ingredient>::class.java).toList()
+
+        @TypeConverter
+        fun listToJson(ingredientList: List<Ingredient>): String = Gson().toJson(ingredientList)
+
+}
