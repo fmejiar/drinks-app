@@ -45,12 +45,13 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
 
         )
     }
-    private lateinit var drinkListAdapter: DrinksListAdapter
+    private val drinkListAdapter by lazy {
+        DrinksListAdapter(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        drinkListAdapter = DrinksListAdapter(this)
     }
 
     override fun onCreateView(
