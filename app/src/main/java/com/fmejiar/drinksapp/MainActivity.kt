@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.fmejiar.drinksapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
+        binding.bottomNavigationView.setupWithNavController(navController)
         NavigationUI.setupActionBarWithNavController(this, navController)
 
     }

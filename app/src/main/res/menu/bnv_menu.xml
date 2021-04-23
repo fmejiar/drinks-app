@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/drinksListFragment"
+          android:icon="@drawable/ic_baseline_local_drink_24"
+          android:title="Drinks" />
+
+    <item android:id="@+id/ingredientsListFragment"
+        android:icon="@drawable/ic_ingredients"
+        android:title="Ingredients" />
+
+    <item android:id="@+id/favoriteDrinksListFragment"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="Favorites" />
+
+</menu>
