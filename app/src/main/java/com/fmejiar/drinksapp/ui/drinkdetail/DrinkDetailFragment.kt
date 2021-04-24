@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp.ui
+package com.fmejiar.drinksapp.ui.drinkdetail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -22,6 +22,8 @@ import com.fmejiar.drinksapp.data.service.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.databinding.FragmentDrinkDetailBinding
 import com.fmejiar.drinksapp.domain.*
 import com.fmejiar.drinksapp.domain.usecase.*
+import com.fmejiar.drinksapp.ui.drinkdetail.DrinkDetailFragmentArgs
+import com.fmejiar.drinksapp.ui.ingredients.IngredientsListAdapter
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
 import com.fmejiar.drinksapp.vo.ResultType

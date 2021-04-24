@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp.ui
+package com.fmejiar.drinksapp.ui.favoritedrinks
 
 import android.content.Context
 import android.view.LayoutInflater

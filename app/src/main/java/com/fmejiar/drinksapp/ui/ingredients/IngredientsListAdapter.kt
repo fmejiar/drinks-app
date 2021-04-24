@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp.ui
+package com.fmejiar.drinksapp.ui.ingredients
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,9 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fmejiar.drinksapp.base.BaseViewHolder
-import com.fmejiar.drinksapp.data.model.Drink
-import com.fmejiar.drinksapp.databinding.DrinkRowBinding
-import androidx.recyclerview.widget.DiffUtil.DiffResult.NO_POSITION
 import com.fmejiar.drinksapp.data.model.Ingredient
 import com.fmejiar.drinksapp.databinding.IngredientRowBinding
 

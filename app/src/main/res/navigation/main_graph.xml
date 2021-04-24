@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/drinksListFragment"
-        android:name="com.fmejiar.drinksapp.ui.DrinksListFragment"
+        android:name="com.fmejiar.drinksapp.ui.drinks.DrinksListFragment"
         android:label="Drinks"
         tools:layout="@layout/fragment_drinks_list">
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/drinkDetailFragment"
-        android:name="com.fmejiar.drinksapp.ui.DrinkDetailFragment"
+        android:name="com.fmejiar.drinksapp.ui.drinkdetail.DrinkDetailFragment"
         android:label="Drink Detail"
         tools:layout="@layout/fragment_drink_detail">
         <argument
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteDrinksListFragment"
-        android:name="com.fmejiar.drinksapp.ui.FavoriteDrinksListFragment"
+        android:name="com.fmejiar.drinksapp.ui.favoritedrinks.FavoriteDrinksListFragment"
         android:label="My Favorites"
         tools:layout="@layout/fragment_favorite_drinks_list">
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/ingredientsListFragment"
-        android:name="com.fmejiar.drinksapp.ui.IngredientsListFragment"
+        android:name="com.fmejiar.drinksapp.ui.ingredients.IngredientsListFragment"
         android:label="fragment_ingredients_list"
         tools:layout="@layout/fragment_ingredients_list" />
 </navigation>

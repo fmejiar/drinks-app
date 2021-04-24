@@ -1,6 +1,5 @@
-package com.fmejiar.drinksapp.ui
+package com.fmejiar.drinksapp.ui.drinks
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

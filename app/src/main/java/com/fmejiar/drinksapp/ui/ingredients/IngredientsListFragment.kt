@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp.ui
+package com.fmejiar.drinksapp.ui.ingredients
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

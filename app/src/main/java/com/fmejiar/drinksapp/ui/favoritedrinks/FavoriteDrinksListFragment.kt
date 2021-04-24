@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp.ui
+package com.fmejiar.drinksapp.ui.favoritedrinks
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,13 +17,14 @@ import com.fmejiar.drinksapp.data.service.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.databinding.FragmentFavoriteDrinksListBinding
 import com.fmejiar.drinksapp.domain.*
 import com.fmejiar.drinksapp.domain.usecase.*
+import com.fmejiar.drinksapp.ui.favoritedrinks.FavoriteDrinksListFragmentDirections
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
 import com.fmejiar.drinksapp.utils.show
 import com.fmejiar.drinksapp.vo.ResultType
 
 class FavoriteDrinksListFragment : Fragment(),
-    FavoriteDrinksListAdapter.OnFavoriteDrinkClickListener {
+        FavoriteDrinksListAdapter.OnFavoriteDrinkClickListener {
 
     private lateinit var binding: FragmentFavoriteDrinksListBinding
     private val viewModel by activityViewModels<DrinksListViewModel> {
@@ -102,9 +103,9 @@ class FavoriteDrinksListFragment : Fragment(),
 
     override fun onFavoriteDrinkClick(drink: Drink, position: Int) {
         findNavController().navigate(
-            FavoriteDrinksListFragmentDirections.actionFavoriteDrinksListFragmentToDrinkDetailFragment(
-                drink.id
-            )
+                FavoriteDrinksListFragmentDirections.actionFavoriteDrinksListFragmentToDrinkDetailFragment(
+                        drink.id
+                )
         )
     }
 
