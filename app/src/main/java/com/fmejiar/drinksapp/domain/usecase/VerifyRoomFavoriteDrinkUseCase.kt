@@ -1,7 +1,6 @@
-package com.fmejiar.drinksapp.domain
+package com.fmejiar.drinksapp.domain.usecase
 
-import com.fmejiar.drinksapp.data.model.Drink
-import com.fmejiar.drinksapp.data.model.DrinkEntity
+import com.fmejiar.drinksapp.domain.repository.DrinkRepository
 
 class VerifyRoomFavoriteDrinkUseCase(private val drinkRepository: DrinkRepository) {
 

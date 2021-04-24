@@ -14,12 +14,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.fmejiar.drinksapp.AppDatabase
 import com.fmejiar.drinksapp.R
-import com.fmejiar.drinksapp.data.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.data.model.Ingredient
+import com.fmejiar.drinksapp.data.repository.DrinkRepositoryImpl
+import com.fmejiar.drinksapp.data.service.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.databinding.FragmentDrinkDetailBinding
 import com.fmejiar.drinksapp.domain.*
+import com.fmejiar.drinksapp.domain.usecase.*
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
 import com.fmejiar.drinksapp.vo.ResultType

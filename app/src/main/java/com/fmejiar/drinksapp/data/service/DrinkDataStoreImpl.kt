@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp.data
+package com.fmejiar.drinksapp.data.service
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
@@ -7,7 +7,7 @@ import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.data.model.asDrinkEntity
 import com.fmejiar.drinksapp.data.model.asDrinksList
-import com.fmejiar.drinksapp.domain.DrinkDataStore
+import com.fmejiar.drinksapp.data.datastore.DrinkDataStore
 import com.fmejiar.drinksapp.vo.ResultType
 import com.fmejiar.drinksapp.vo.RetrofitApiClient
 import java.lang.Exception

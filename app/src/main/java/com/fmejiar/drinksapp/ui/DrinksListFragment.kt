@@ -11,10 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fmejiar.drinksapp.AppDatabase
 import com.fmejiar.drinksapp.R
-import com.fmejiar.drinksapp.data.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.data.model.Drink
+import com.fmejiar.drinksapp.data.repository.DrinkRepositoryImpl
+import com.fmejiar.drinksapp.data.service.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.databinding.FragmentDrinksListBinding
 import com.fmejiar.drinksapp.domain.*
+import com.fmejiar.drinksapp.domain.usecase.*
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
 import com.fmejiar.drinksapp.utils.hide

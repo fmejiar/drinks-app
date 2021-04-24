@@ -1,18 +1,16 @@
-package com.fmejiar.drinksapp.domain
+package com.fmejiar.drinksapp.domain.repository
 
 import androidx.lifecycle.LiveData
 import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.vo.ResultType
-import com.fmejiar.drinksapp.vo.RetrofitApiClient
 
-interface DrinkDataStore {
+interface DrinkRepository {
 
-    suspend fun getDrinkByName(drinkName: String): ResultType<List<Drink>>
-    suspend fun insertRoomDrink(drinkEntity: DrinkEntity)
+    suspend fun getDrinksList(drinkName: String): ResultType<List<Drink>>
     fun getRoomFavoriteDrinksList(): LiveData<List<Drink>>
+    suspend fun insertRoomDrink(drinkEntity: DrinkEntity)
     suspend fun deleteRoomFavoriteDrink(drink: Drink)
     suspend fun isDrinkFavorite(drinkId: String): Boolean
-    suspend fun retrieveDrinkById(drinkId: String): ResultType<List<Drink>>
-
+    suspend fun fetchDrinkById(drinkId: String): ResultType<List<Drink>>
 }

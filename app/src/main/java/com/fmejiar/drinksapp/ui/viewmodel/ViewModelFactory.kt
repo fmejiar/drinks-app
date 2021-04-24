@@ -2,7 +2,7 @@ package com.fmejiar.drinksapp.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.fmejiar.drinksapp.domain.*
+import com.fmejiar.drinksapp.domain.usecase.*
 
 class ViewModelFactory(private val getDrinksByNameUseCase: GetDrinksByNameUseCase,
                        private val insertRoomDrinkUseCase: InsertRoomDrinkUseCase,
