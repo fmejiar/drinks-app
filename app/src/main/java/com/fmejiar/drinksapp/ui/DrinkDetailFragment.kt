@@ -117,7 +117,7 @@ class DrinkDetailFragment : Fragment() {
         fetchIngredients()
     }
 
-    fun updateButtonIcon() {
+    private fun updateButtonIcon() {
         val isDrinkFavorited = isDrinkFavorited ?: return
         binding.btnSaveOrDeleteDrink.setImageResource(
                 when {

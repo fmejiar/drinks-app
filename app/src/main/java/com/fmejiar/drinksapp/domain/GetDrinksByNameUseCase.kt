@@ -29,12 +29,10 @@ class GetDrinksByNameUseCase(private val drinkRepository: DrinkRepository) {
         }
     }
 
-    private fun getIngredientsListByDrink(drink: Drink): MutableList<Ingredient> {
+    private fun getIngredientsListByDrink(drink: Drink): MutableList<Ingredient> =
+            generateIngredientsList(drink, drink.ingredients)
 
-        var ingredientsList: MutableList<Ingredient> = mutableListOf()
-
-        ingredientsList = drink.ingredients
-
+    private fun generateIngredientsList(drink: Drink, ingredientsList: MutableList<Ingredient>): MutableList<Ingredient> {
         if (!drink.ingredient1.isNullOrEmpty() && !drink.measure1.isNullOrEmpty()) {
             ingredientsList.add(Ingredient(drink.ingredient1, drink.measure1))
         }
