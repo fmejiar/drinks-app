@@ -146,7 +146,7 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
 
     override fun onDrinkClick(drink: Drink, position: Int) {
         findNavController().navigate(
-                DrinksListFragmentDirections.actionDrinksListFragmentToDrinkDetailFragment(drink)
+                DrinksListFragmentDirections.actionDrinksListFragmentToDrinkDetailFragment(drink.id)
         )
     }
 

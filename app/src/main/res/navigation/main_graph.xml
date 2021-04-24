@@ -31,9 +31,8 @@
         android:label="Drink Detail"
         tools:layout="@layout/fragment_drink_detail">
         <argument
-            android:name="drink"
-            app:argType="com.fmejiar.drinksapp.data.model.Drink"
-            app:nullable="false" />
+            android:name="drinkId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/favoriteDrinksListFragment"

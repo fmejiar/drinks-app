@@ -101,7 +101,7 @@ class FavoriteDrinksListFragment : Fragment(),
     override fun onFavoriteDrinkClick(drink: Drink, position: Int) {
         findNavController().navigate(
             FavoriteDrinksListFragmentDirections.actionFavoriteDrinksListFragmentToDrinkDetailFragment(
-                drink
+                drink.id
             )
         )
     }

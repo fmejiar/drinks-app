@@ -70,7 +70,7 @@ class DrinksListViewModel(private val getDrinksByNameUseCase: GetDrinksByNameUse
                 emit(getDrinkByIdUseCase.invoke(drinkId))
             }
 
-    suspend fun isDrinkFavorite(drink: Drink): Boolean =
-            verifyRoomFavoriteDrinkUseCase.invoke(drink)
+    suspend fun isDrinkFavorite(drinkId: String): Boolean =
+            verifyRoomFavoriteDrinkUseCase.invoke(drinkId)
 
 }

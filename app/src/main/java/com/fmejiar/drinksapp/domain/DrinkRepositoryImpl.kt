@@ -19,8 +19,8 @@ class DrinkRepositoryImpl(private val drinkDataStore: DrinkDataStore) : DrinkRep
     override suspend fun deleteRoomFavoriteDrink(drink: Drink) =
             drinkDataStore.deleteRoomFavoriteDrink(drink)
 
-    override suspend fun isDrinkFavorite(drink: Drink): Boolean =
-            drinkDataStore.isDrinkFavorite(drink)
+    override suspend fun isDrinkFavorite(drinkId: String): Boolean =
+            drinkDataStore.isDrinkFavorite(drinkId)
 
     override suspend fun fetchDrinkById(drinkId: String): ResultType<List<Drink>> =
             drinkDataStore.retrieveDrinkById(drinkId)

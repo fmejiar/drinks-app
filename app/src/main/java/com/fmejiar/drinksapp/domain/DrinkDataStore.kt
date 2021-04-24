@@ -12,7 +12,7 @@ interface DrinkDataStore {
     suspend fun insertRoomDrink(drinkEntity: DrinkEntity)
     fun getRoomFavoriteDrinksList(): LiveData<List<Drink>>
     suspend fun deleteRoomFavoriteDrink(drink: Drink)
-    suspend fun isDrinkFavorite(drink: Drink): Boolean
+    suspend fun isDrinkFavorite(drinkId: String): Boolean
     suspend fun retrieveDrinkById(drinkId: String): ResultType<List<Drink>>
 
 }

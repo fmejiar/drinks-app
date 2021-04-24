@@ -17,6 +17,7 @@ import com.fmejiar.drinksapp.R
 import com.fmejiar.drinksapp.data.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.data.model.DrinkEntity
+import com.fmejiar.drinksapp.data.model.Ingredient
 import com.fmejiar.drinksapp.databinding.FragmentDrinkDetailBinding
 import com.fmejiar.drinksapp.domain.*
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
@@ -50,6 +51,7 @@ class DrinkDetailFragment : Fragment() {
     }
     private lateinit var binding: FragmentDrinkDetailBinding
     private lateinit var drink: Drink
+    private var drinkId = ""
     private val args: DrinkDetailFragmentArgs by navArgs()
     private var isDrinkFavorited: Boolean? = null
     private lateinit var ingredientListAdapter: IngredientsListAdapter
@@ -60,7 +62,7 @@ class DrinkDetailFragment : Fragment() {
         ingredientListAdapter = IngredientsListAdapter(requireContext())
 
         requireArguments().let {
-            drink = args.drink
+            drinkId = args.drinkId
         }
 
     }
@@ -88,6 +90,12 @@ class DrinkDetailFragment : Fragment() {
                 .into(binding.imgDrink)
         binding.nameDrink.text = drink.name
         binding.descriptionDrink.text = drink.description
+        setupIngredientsRecyclerView()
+        fetchIngredients(drink.ingredients)
+        doSaveOrDeleteDrink()
+    }
+
+    private fun doSaveOrDeleteDrink() {
         binding.btnSaveOrDeleteDrink.setOnClickListener {
             val isDrinkFavorited = isDrinkFavorited ?: return@setOnClickListener
 
@@ -112,9 +120,6 @@ class DrinkDetailFragment : Fragment() {
             this.isDrinkFavorited = !isDrinkFavorited
             updateButtonIcon()
         }
-
-        setupIngredientsRecyclerView()
-        fetchIngredients()
     }
 
     private fun updateButtonIcon() {
@@ -129,16 +134,16 @@ class DrinkDetailFragment : Fragment() {
 
     private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
-            isDrinkFavorited = viewModel.isDrinkFavorite(drink)
+            isDrinkFavorited = viewModel.isDrinkFavorite(drinkId)
             updateButtonIcon()
         }
-        viewModel.getDrinkById(drink.id).observe(viewLifecycleOwner, Observer { result ->
+        viewModel.getDrinkById(drinkId).observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is ResultType.Loading -> {
 
                 }
                 is ResultType.Success -> {
-                    val drink = result.data.first()
+                    drink = result.data.first()
                     setupUI(drink)
                 }
                 is ResultType.Failure -> {
@@ -153,8 +158,8 @@ class DrinkDetailFragment : Fragment() {
         binding.rvIngredients.adapter = ingredientListAdapter
     }
 
-    private fun fetchIngredients() {
-        ingredientListAdapter.setIngredientsList(drink.ingredients)
+    private fun fetchIngredients(ingredientsList: MutableList<Ingredient>) {
+        ingredientListAdapter.setIngredientsList(ingredientsList)
     }
 
 }

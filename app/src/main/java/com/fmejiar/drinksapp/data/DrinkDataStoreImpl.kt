@@ -29,8 +29,8 @@ class DrinkDataStoreImpl(private val appDatabase: AppDatabase) : DrinkDataStore 
         appDatabase.drinkDao().deleteFavoriteDrink(drink.asDrinkEntity())
     }
 
-    override suspend fun isDrinkFavorite(drink: Drink): Boolean =
-            appDatabase.drinkDao().getDrinkById(drink.id) != null
+    override suspend fun isDrinkFavorite(drinkId: String): Boolean =
+            appDatabase.drinkDao().getDrinkById(drinkId) != null
 
     override suspend fun retrieveDrinkById(drinkId: String): ResultType<List<Drink>> {
         try {

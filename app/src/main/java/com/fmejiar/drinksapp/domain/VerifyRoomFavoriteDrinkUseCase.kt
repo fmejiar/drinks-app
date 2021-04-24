@@ -5,5 +5,5 @@ import com.fmejiar.drinksapp.data.model.DrinkEntity
 
 class VerifyRoomFavoriteDrinkUseCase(private val drinkRepository: DrinkRepository) {
 
-    suspend operator fun invoke(drink: Drink) = drinkRepository.isDrinkFavorite(drink)
+    suspend operator fun invoke(drinkId: String) = drinkRepository.isDrinkFavorite(drinkId)
 }
