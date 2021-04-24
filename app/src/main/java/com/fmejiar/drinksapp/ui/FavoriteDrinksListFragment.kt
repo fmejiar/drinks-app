@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fmejiar.drinksapp.AppDatabase
 import com.fmejiar.drinksapp.R
@@ -41,8 +40,10 @@ class FavoriteDrinksListFragment : Fragment(),
                         (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
                 VerifyRoomFavoriteDrinkUseCase(
                         DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                GetDrinkByIdUseCase(
+                        DrinkRepositoryImpl
                         (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext))))
-
         )
     }
     private lateinit var favoriteDrinksListAdapter: FavoriteDrinksListAdapter

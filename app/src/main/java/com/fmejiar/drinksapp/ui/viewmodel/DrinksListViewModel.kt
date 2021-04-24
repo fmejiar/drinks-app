@@ -13,7 +13,8 @@ class DrinksListViewModel(private val getDrinksByNameUseCase: GetDrinksByNameUse
                           private val insertRoomDrinkUseCase: InsertRoomDrinkUseCase,
                           private val getRoomFavoriteDrinksListUseCase: GetRoomFavoriteDrinksListUseCase,
                           private val deleteRoomFavoriteDrinkUseCase: DeleteRoomFavoriteDrinkUseCase,
-                          private val verifyRoomFavoriteDrinkUseCase: VerifyRoomFavoriteDrinkUseCase) : ViewModel() {
+                          private val verifyRoomFavoriteDrinkUseCase: VerifyRoomFavoriteDrinkUseCase,
+                          private val getDrinkByIdUseCase: GetDrinkByIdUseCase) : ViewModel() {
 
     private val drinkSearchName = MutableLiveData<String>()
 
@@ -62,6 +63,12 @@ class DrinksListViewModel(private val getDrinksByNameUseCase: GetDrinksByNameUse
             }
         }
     }
+
+    fun getDrinkById(drinkId: String) =
+            liveData<ResultType<List<Drink>>>(viewModelScope.coroutineContext + Dispatchers.IO) {
+                emit(ResultType.Loading)
+                emit(getDrinkByIdUseCase.invoke(drinkId))
+            }
 
     suspend fun isDrinkFavorite(drink: Drink): Boolean =
             verifyRoomFavoriteDrinkUseCase.invoke(drink)

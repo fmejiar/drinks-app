@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +21,7 @@ import com.fmejiar.drinksapp.databinding.FragmentDrinkDetailBinding
 import com.fmejiar.drinksapp.domain.*
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
+import com.fmejiar.drinksapp.vo.ResultType
 import kotlinx.coroutines.launch
 
 class DrinkDetailFragment : Fragment() {
@@ -40,8 +42,10 @@ class DrinkDetailFragment : Fragment() {
                         (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
                 VerifyRoomFavoriteDrinkUseCase(
                         DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                GetDrinkByIdUseCase(
+                        DrinkRepositoryImpl
                         (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext))))
-
         )
     }
     private lateinit var binding: FragmentDrinkDetailBinding
@@ -73,11 +77,11 @@ class DrinkDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentDrinkDetailBinding.bind(view)
-        setupUI()
-        setupObserver()
+        // setupUI()
+        setupObservers()
     }
 
-    private fun setupUI() {
+    private fun setupUI(drink: Drink) {
         Glide.with(requireContext())
                 .load(drink.image)
                 .centerCrop()
@@ -123,11 +127,25 @@ class DrinkDetailFragment : Fragment() {
         )
     }
 
-    fun setupObserver() {
+    private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             isDrinkFavorited = viewModel.isDrinkFavorite(drink)
             updateButtonIcon()
         }
+        viewModel.getDrinkById(drink.id).observe(viewLifecycleOwner, Observer { result ->
+            when (result) {
+                is ResultType.Loading -> {
+
+                }
+                is ResultType.Success -> {
+                    val drink = result.data.first()
+                    setupUI(drink)
+                }
+                is ResultType.Failure -> {
+
+                }
+            }
+        })
     }
 
     private fun setupIngredientsRecyclerView() {

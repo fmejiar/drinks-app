@@ -12,5 +12,5 @@ interface DrinkRepository {
     suspend fun insertRoomDrink(drinkEntity: DrinkEntity)
     suspend fun deleteRoomFavoriteDrink(drink: Drink)
     suspend fun isDrinkFavorite(drink: Drink): Boolean
-
+    suspend fun fetchDrinkById(drinkId: String): ResultType<List<Drink>>
 }

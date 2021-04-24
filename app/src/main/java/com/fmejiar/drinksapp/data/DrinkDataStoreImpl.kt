@@ -10,6 +10,7 @@ import com.fmejiar.drinksapp.data.model.asDrinksList
 import com.fmejiar.drinksapp.domain.DrinkDataStore
 import com.fmejiar.drinksapp.vo.ResultType
 import com.fmejiar.drinksapp.vo.RetrofitApiClient
+import java.lang.Exception
 
 class DrinkDataStoreImpl(private val appDatabase: AppDatabase) : DrinkDataStore {
 
@@ -30,4 +31,17 @@ class DrinkDataStoreImpl(private val appDatabase: AppDatabase) : DrinkDataStore 
 
     override suspend fun isDrinkFavorite(drink: Drink): Boolean =
             appDatabase.drinkDao().getDrinkById(drink.id) != null
+
+    override suspend fun retrieveDrinkById(drinkId: String): ResultType<List<Drink>> {
+        try {
+            val response = RetrofitApiClient.webservice.getDrinkById(drinkId)?.drinksList
+                    ?: listOf()
+            response?.let {
+                return ResultType.Success(response)
+            }
+        } catch (e: Exception) {
+            return ResultType.Failure(e)
+        }
+    }
+
 }

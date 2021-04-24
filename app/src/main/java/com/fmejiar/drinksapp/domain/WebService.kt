@@ -9,4 +9,6 @@ interface WebService {
     @GET("search.php")
     suspend fun getDrinksByName(@Query(value = "s") drinkName: String): DrinksResponse?
 
+    @GET("lookup.php")
+    suspend fun getDrinkById(@Query(value = "i") drinkId: String): DrinksResponse?
 }

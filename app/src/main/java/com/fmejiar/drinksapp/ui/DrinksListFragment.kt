@@ -41,8 +41,10 @@ class DrinksListFragment : Fragment(), DrinksListAdapter.OnDrinkClickListener {
                         (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
                 VerifyRoomFavoriteDrinkUseCase(
                         DrinkRepositoryImpl
+                        (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext)))),
+                GetDrinkByIdUseCase(
+                        DrinkRepositoryImpl
                         (DrinkDataStoreImpl(AppDatabase.getDatabase(requireActivity().applicationContext))))
-
         )
     }
     private val drinkListAdapter by lazy {

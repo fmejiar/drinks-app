@@ -8,7 +8,8 @@ class ViewModelFactory(private val getDrinksByNameUseCase: GetDrinksByNameUseCas
                        private val insertRoomDrinkUseCase: InsertRoomDrinkUseCase,
                        private val getRoomFavoriteDrinksListUseCase: GetRoomFavoriteDrinksListUseCase,
                        private val deleteRoomFavoriteDrinkUseCase: DeleteRoomFavoriteDrinkUseCase,
-                       private val verifyRoomFavoriteDrinkUseCase: VerifyRoomFavoriteDrinkUseCase) : ViewModelProvider.Factory {
+                       private val verifyRoomFavoriteDrinkUseCase: VerifyRoomFavoriteDrinkUseCase,
+                       private val getDrinkByIdUseCase: GetDrinkByIdUseCase) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return modelClass.getConstructor(
@@ -16,12 +17,14 @@ class ViewModelFactory(private val getDrinksByNameUseCase: GetDrinksByNameUseCas
                 InsertRoomDrinkUseCase::class.java,
                 GetRoomFavoriteDrinksListUseCase::class.java,
                 DeleteRoomFavoriteDrinkUseCase::class.java,
-                VerifyRoomFavoriteDrinkUseCase::class.java)
+                VerifyRoomFavoriteDrinkUseCase::class.java,
+                GetDrinkByIdUseCase::class.java)
                 .newInstance(
                         getDrinksByNameUseCase,
                         insertRoomDrinkUseCase,
                         getRoomFavoriteDrinksListUseCase,
                         deleteRoomFavoriteDrinkUseCase,
-                        verifyRoomFavoriteDrinkUseCase)
+                        verifyRoomFavoriteDrinkUseCase,
+                        getDrinkByIdUseCase)
     }
 }
