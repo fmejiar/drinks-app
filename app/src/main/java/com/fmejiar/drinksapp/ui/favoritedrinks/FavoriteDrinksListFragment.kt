@@ -15,14 +15,12 @@ import com.fmejiar.drinksapp.data.repository.DrinkRepositoryImpl
 import com.fmejiar.drinksapp.data.service.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.databinding.FragmentFavoriteDrinksListBinding
 import com.fmejiar.drinksapp.domain.*
-// import com.fmejiar.drinksapp.domain.response.drinks.Drink
 import com.fmejiar.drinksapp.domain.usecase.*
-import com.fmejiar.drinksapp.ui.favoritedrinks.FavoriteDrinksListFragmentDirections
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
 import com.fmejiar.drinksapp.utils.show
 import com.fmejiar.drinksapp.vo.ResultType
-import com.fmejiar.model.home.drink.Drink
+import com.fmejiar.model.home.drinks.Drink
 
 class FavoriteDrinksListFragment : Fragment(),
         FavoriteDrinksListAdapter.OnFavoriteDrinkClickListener {

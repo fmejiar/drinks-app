@@ -1,9 +1,9 @@
 package com.fmejiar.drinksapp.domain.mapper
 
 import com.fmejiar.drinksapp.domain.response.drinks.DrinksResponse
-import com.fmejiar.model.home.drink.Drink
-import com.fmejiar.model.home.ingredient.Ingredient
-import com.fmejiar.model.home.drink.DrinksModel
+import com.fmejiar.model.home.drinks.Drink
+import com.fmejiar.model.home.ingredients.Ingredient
+import com.fmejiar.model.home.drinks.DrinksModel
 
 fun DrinksResponse.toDomain(): DrinksModel {
     return DrinksModel(

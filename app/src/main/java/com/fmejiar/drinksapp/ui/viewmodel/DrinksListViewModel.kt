@@ -2,10 +2,9 @@ package com.fmejiar.drinksapp.ui.viewmodel
 
 import androidx.lifecycle.*
 import com.fmejiar.drinksapp.data.model.DrinkEntity
-// import com.fmejiar.drinksapp.domain.response.drinks.Drink
 import com.fmejiar.drinksapp.domain.usecase.*
 import com.fmejiar.drinksapp.vo.ResultType
-import com.fmejiar.model.home.drink.Drink
+import com.fmejiar.model.home.drinks.Drink
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

@@ -5,7 +5,7 @@ import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.data.datastore.DrinkDataStore
 import com.fmejiar.drinksapp.domain.repository.DrinkRepository
 import com.fmejiar.drinksapp.vo.ResultType
-import com.fmejiar.model.home.drink.Drink
+import com.fmejiar.model.home.drinks.Drink
 
 class DrinkRepositoryImpl(private val drinkDataStore: DrinkDataStore) : DrinkRepository {
 

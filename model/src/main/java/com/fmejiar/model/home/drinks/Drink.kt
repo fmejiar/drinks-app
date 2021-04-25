@@ -1,6 +1,6 @@
-package com.fmejiar.model.home.drink
+package com.fmejiar.model.home.drinks
 
-import com.fmejiar.model.home.ingredient.Ingredient
+import com.fmejiar.model.home.ingredients.Ingredient
 
 data class Drink(
     val id: String,

@@ -8,12 +8,9 @@ import com.fmejiar.drinksapp.data.model.asDrinkEntity
 import com.fmejiar.drinksapp.data.model.asDrinksList
 import com.fmejiar.drinksapp.data.datastore.DrinkDataStore
 import com.fmejiar.drinksapp.domain.mapper.toDomain
-// import com.fmejiar.drinksapp.domain.response.drinks.Drink
-import com.fmejiar.drinksapp.domain.response.drinks.DrinksResponse
 import com.fmejiar.drinksapp.vo.ResultType
 import com.fmejiar.drinksapp.vo.RetrofitApiClient
-import com.fmejiar.model.home.drink.Drink
-import com.fmejiar.model.home.drink.DrinksModel
+import com.fmejiar.model.home.drinks.Drink
 import java.lang.Exception
 
 class DrinkDataStoreImpl(private val appDatabase: AppDatabase) : DrinkDataStore {

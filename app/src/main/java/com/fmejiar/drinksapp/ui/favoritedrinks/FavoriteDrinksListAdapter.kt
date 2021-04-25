@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fmejiar.drinksapp.base.BaseViewHolder
 import com.fmejiar.drinksapp.databinding.DrinkRowBinding
-import com.fmejiar.model.home.drink.Drink
+import com.fmejiar.model.home.drinks.Drink
 
 class FavoriteDrinksListAdapter(
     private val context: Context,

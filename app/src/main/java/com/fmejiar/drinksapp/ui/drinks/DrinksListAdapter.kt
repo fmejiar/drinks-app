@@ -7,9 +7,7 @@ import com.bumptech.glide.Glide
 import com.fmejiar.drinksapp.base.BaseViewHolder
 import com.fmejiar.drinksapp.databinding.DrinkRowBinding
 import androidx.recyclerview.widget.DiffUtil.DiffResult.NO_POSITION
-import com.fmejiar.model.home.drink.Drink
-
-// import com.fmejiar.drinksapp.domain.response.drinks.Drink
+import com.fmejiar.model.home.drinks.Drink
 
 class DrinksListAdapter(
         private val itemClickListener: OnDrinkClickListener

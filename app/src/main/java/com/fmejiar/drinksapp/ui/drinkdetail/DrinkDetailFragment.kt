@@ -24,8 +24,8 @@ import com.fmejiar.drinksapp.ui.ingredients.IngredientsListAdapter
 import com.fmejiar.drinksapp.ui.viewmodel.DrinksListViewModel
 import com.fmejiar.drinksapp.ui.viewmodel.ViewModelFactory
 import com.fmejiar.drinksapp.vo.ResultType
-import com.fmejiar.model.home.drink.Drink
-import com.fmejiar.model.home.ingredient.Ingredient
+import com.fmejiar.model.home.drinks.Drink
+import com.fmejiar.model.home.ingredients.Ingredient
 import kotlinx.coroutines.launch
 
 class DrinkDetailFragment : Fragment() {
@@ -104,7 +104,7 @@ class DrinkDetailFragment : Fragment() {
 
             if (isDrinkFavorited) {
                 viewModel.deleteRoomFavoriteDrink(drink)
-                Toast.makeText(requireContext(), "The drink was deleted in favorites", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), "The drinks was deleted in favorites", Toast.LENGTH_SHORT)
                         .show()
             } else {
                 viewModel.insertRoomDrink(
@@ -117,7 +117,7 @@ class DrinkDetailFragment : Fragment() {
                                 drink.ingredients
                         )
                 )
-                Toast.makeText(requireContext(), "The drink was saved in favorites", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), "The drinks was saved in favorites", Toast.LENGTH_SHORT)
                         .show()
             }
             this.isDrinkFavorited = !isDrinkFavorited

@@ -1,11 +1,9 @@
 package com.fmejiar.drinksapp.domain.usecase
 
 import com.fmejiar.drinksapp.domain.repository.DrinkRepository
-// import com.fmejiar.drinksapp.domain.response.drinks.Drink
-// import com.fmejiar.drinksapp.domain.response.ingredients.Ingredient
 import com.fmejiar.drinksapp.vo.ResultType
-import com.fmejiar.model.home.drink.Drink
-import com.fmejiar.model.home.ingredient.Ingredient
+import com.fmejiar.model.home.drinks.Drink
+import com.fmejiar.model.home.ingredients.Ingredient
 
 class GetDrinksByNameUseCase(private val drinkRepository: DrinkRepository) {
 
