@@ -2,7 +2,6 @@ package com.fmejiar.drinksapp.domain
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 
 @Dao

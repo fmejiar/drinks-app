@@ -1,10 +1,11 @@
 package com.fmejiar.drinksapp.data.datastore
 
 import androidx.lifecycle.LiveData
-import com.fmejiar.drinksapp.data.model.Drink
 import com.fmejiar.drinksapp.data.model.DrinkEntity
+// import com.fmejiar.drinksapp.domain.response.drinks.Drink
 import com.fmejiar.drinksapp.vo.ResultType
 import com.fmejiar.drinksapp.vo.RetrofitApiClient
+import com.fmejiar.model.home.drink.Drink
 
 interface DrinkDataStore {
 

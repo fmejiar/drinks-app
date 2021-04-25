@@ -7,10 +7,14 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
+// import com.fmejiar.drinksapp.domain.response.drinks.Drink
+// import com.fmejiar.drinksapp.domain.response.ingredients.Ingredient
+import com.fmejiar.model.home.drink.Drink
+import com.fmejiar.model.home.ingredient.Ingredient
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 
-@Parcelize
+/*@Parcelize
 data class Drink(
         @SerializedName("idDrink")
         val id: String = "",
@@ -83,18 +87,18 @@ data class Drink(
         @SerializedName("strMeasure15")
         val measure15: String = "",
         var ingredients: MutableList<Ingredient> = mutableListOf()
-) : Parcelable
+) : Parcelable*/
 
-data class DrinksResponse(
+/*data class DrinksResponse(
         @SerializedName("drinks")
         val drinksList: List<Drink> = listOf()
-)
+)*/
 
-@Parcelize
+/*@Parcelize
 data class Ingredient(
         val name: String = "",
         val measure: String = ""
-) : Parcelable
+) : Parcelable*/
 
 @Entity(tableName = "drinkTable")
 data class DrinkEntity(

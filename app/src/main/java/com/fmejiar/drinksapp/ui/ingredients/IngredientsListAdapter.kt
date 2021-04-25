@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fmejiar.drinksapp.base.BaseViewHolder
-import com.fmejiar.drinksapp.data.model.Ingredient
 import com.fmejiar.drinksapp.databinding.IngredientRowBinding
+import com.fmejiar.model.home.ingredient.Ingredient
+
+// import com.fmejiar.drinksapp.domain.response.ingredients.Ingredient
 
 class IngredientsListAdapter(
         private val context: Context

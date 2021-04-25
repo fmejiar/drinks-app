@@ -1,9 +1,13 @@
 package com.fmejiar.drinksapp.domain.usecase
 
-import com.fmejiar.drinksapp.data.model.Drink
-import com.fmejiar.drinksapp.data.model.Ingredient
+// import com.fmejiar.drinksapp.data.model.Drink
+// import com.fmejiar.drinksapp.data.model.Ingredient
 import com.fmejiar.drinksapp.domain.repository.DrinkRepository
+// import com.fmejiar.drinksapp.domain.response.drinks.Drink
+// import com.fmejiar.drinksapp.domain.response.ingredients.Ingredient
 import com.fmejiar.drinksapp.vo.ResultType
+import com.fmejiar.model.home.drink.Drink
+import com.fmejiar.model.home.ingredient.Ingredient
 
 class GetDrinkByIdUseCase(private val drinkRepository: DrinkRepository) {
 

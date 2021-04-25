@@ -1,6 +1,6 @@
 package com.fmejiar.drinksapp.domain
 
-import com.fmejiar.drinksapp.data.model.DrinksResponse
+import com.fmejiar.drinksapp.domain.response.drinks.DrinksResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
