@@ -25,13 +25,6 @@ data class DrinkEntity(
         val ingredients: MutableList<Ingredient> = mutableListOf()
 )
 
-fun List<DrinkEntity>.asDrinksList(): List<Drink> = this.map {
-    Drink(it.id, it.image, it.name, it.description, it.hasAlcohol, ingredients = it.ingredients)
-}
-
-fun Drink.asDrinkEntity(): DrinkEntity =
-        DrinkEntity(this.id, this.image, this.name, this.description, this.hasAlcohol)
-
 /*class IngredientsTypeConverter {
 
    @TypeConverter

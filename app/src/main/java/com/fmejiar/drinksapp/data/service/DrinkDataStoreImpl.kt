@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.fmejiar.drinksapp.data.local.AppDatabase
 import com.fmejiar.drinksapp.data.model.DrinkEntity
-import com.fmejiar.drinksapp.data.model.asDrinkEntity
-import com.fmejiar.drinksapp.data.model.asDrinksList
 import com.fmejiar.drinksapp.data.datastore.DrinkDataStore
 import com.fmejiar.drinksapp.domain.mapper.toDomain
+import com.fmejiar.drinksapp.utils.asDrinkEntity
+import com.fmejiar.drinksapp.utils.asDrinksList
 import com.fmejiar.drinksapp.vo.ResultType
 import com.fmejiar.drinksapp.vo.RetrofitApiClient
 import com.fmejiar.model.home.drinks.Drink
