@@ -1,7 +1,7 @@
 package com.fmejiar.drinksapp.ui.viewmodel
 
 import androidx.lifecycle.*
-import com.fmejiar.drinksapp.data.model.DrinkEntity
+import com.fmejiar.drinksapp.data.local.DrinkEntity
 import com.fmejiar.drinksapp.domain.usecase.*
 import com.fmejiar.drinksapp.vo.ResultType
 import com.fmejiar.model.home.drinks.Drink

@@ -2,7 +2,6 @@ package com.fmejiar.drinksapp.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.fmejiar.drinksapp.data.model.DrinkEntity
 
 @Dao
 interface DrinkDao {

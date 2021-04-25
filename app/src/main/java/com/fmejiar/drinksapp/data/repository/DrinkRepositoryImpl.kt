@@ -1,7 +1,7 @@
 package com.fmejiar.drinksapp.data.repository
 
 import androidx.lifecycle.LiveData
-import com.fmejiar.drinksapp.data.model.DrinkEntity
+import com.fmejiar.drinksapp.data.local.DrinkEntity
 import com.fmejiar.drinksapp.data.datastore.DrinkDataStore
 import com.fmejiar.drinksapp.domain.repository.DrinkRepository
 import com.fmejiar.drinksapp.vo.ResultType

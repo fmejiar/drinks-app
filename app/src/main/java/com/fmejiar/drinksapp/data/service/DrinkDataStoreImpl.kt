@@ -3,7 +3,7 @@ package com.fmejiar.drinksapp.data.service
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.fmejiar.drinksapp.data.local.AppDatabase
-import com.fmejiar.drinksapp.data.model.DrinkEntity
+import com.fmejiar.drinksapp.data.local.DrinkEntity
 import com.fmejiar.drinksapp.data.datastore.DrinkDataStore
 import com.fmejiar.drinksapp.domain.mapper.toDomain
 import com.fmejiar.drinksapp.utils.asDrinkEntity

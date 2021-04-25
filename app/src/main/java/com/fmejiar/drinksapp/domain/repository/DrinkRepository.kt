@@ -1,7 +1,7 @@
 package com.fmejiar.drinksapp.domain.repository
 
 import androidx.lifecycle.LiveData
-import com.fmejiar.drinksapp.data.model.DrinkEntity
+import com.fmejiar.drinksapp.data.local.DrinkEntity
 import com.fmejiar.drinksapp.vo.ResultType
 import com.fmejiar.model.home.drinks.Drink
 

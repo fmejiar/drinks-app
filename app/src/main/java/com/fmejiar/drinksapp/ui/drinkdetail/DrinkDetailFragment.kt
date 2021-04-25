@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.fmejiar.drinksapp.data.local.AppDatabase
 import com.fmejiar.drinksapp.R
-import com.fmejiar.drinksapp.data.model.DrinkEntity
+import com.fmejiar.drinksapp.data.local.DrinkEntity
 import com.fmejiar.drinksapp.data.repository.DrinkRepositoryImpl
 import com.fmejiar.drinksapp.data.service.DrinkDataStoreImpl
 import com.fmejiar.drinksapp.databinding.FragmentDrinkDetailBinding
