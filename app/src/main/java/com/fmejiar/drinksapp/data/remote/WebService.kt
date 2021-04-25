@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp.domain
+package com.fmejiar.drinksapp.data.remote
 
 import com.fmejiar.drinksapp.domain.response.drinks.DrinksResponse
 import retrofit2.http.GET

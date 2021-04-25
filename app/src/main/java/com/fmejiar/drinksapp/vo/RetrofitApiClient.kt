@@ -1,7 +1,6 @@
 package com.fmejiar.drinksapp.vo
 
-import com.fmejiar.drinksapp.domain.WebService
-import com.google.gson.GsonBuilder
+import com.fmejiar.drinksapp.data.remote.WebService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
