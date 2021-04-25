@@ -2,7 +2,7 @@ package com.fmejiar.drinksapp.data.service
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
-import com.fmejiar.drinksapp.AppDatabase
+import com.fmejiar.drinksapp.data.local.AppDatabase
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.data.model.asDrinkEntity
 import com.fmejiar.drinksapp.data.model.asDrinksList

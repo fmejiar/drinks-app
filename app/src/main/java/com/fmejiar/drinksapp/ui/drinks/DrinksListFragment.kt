@@ -9,7 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fmejiar.drinksapp.AppDatabase
+import com.fmejiar.drinksapp.data.local.AppDatabase
 import com.fmejiar.drinksapp.R
 import com.fmejiar.drinksapp.data.repository.DrinkRepositoryImpl
 import com.fmejiar.drinksapp.data.service.DrinkDataStoreImpl

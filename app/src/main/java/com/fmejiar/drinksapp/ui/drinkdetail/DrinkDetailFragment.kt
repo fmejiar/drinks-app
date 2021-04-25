@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.fmejiar.drinksapp.AppDatabase
+import com.fmejiar.drinksapp.data.local.AppDatabase
 import com.fmejiar.drinksapp.R
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.data.repository.DrinkRepositoryImpl

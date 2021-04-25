@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp
+package com.fmejiar.drinksapp.data.local
 
 import android.content.Context
 import androidx.room.Database
@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.fmejiar.drinksapp.data.model.DrinkEntity
 import com.fmejiar.drinksapp.data.model.IngredientsTypeConverter
-import com.fmejiar.drinksapp.domain.DrinkDao
 
 @Database(entities = [DrinkEntity::class], version = 1, exportSchema = false)
 @TypeConverters(IngredientsTypeConverter::class)
