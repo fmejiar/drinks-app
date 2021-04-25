@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp.domain.response.drinks
+package com.fmejiar.drinksapp.data.response.drinks
 
 import com.google.gson.annotations.SerializedName
 

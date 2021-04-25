@@ -1,6 +1,6 @@
-package com.fmejiar.drinksapp.domain.mapper
+package com.fmejiar.drinksapp.data.mapper
 
-import com.fmejiar.drinksapp.domain.response.drinks.DrinksResponse
+import com.fmejiar.drinksapp.data.response.drinks.DrinksResponse
 import com.fmejiar.model.home.drinks.Drink
 import com.fmejiar.model.home.ingredients.Ingredient
 import com.fmejiar.model.home.drinks.DrinksModel
@@ -11,7 +11,7 @@ fun DrinksResponse.toDomain(): DrinksModel {
     )
 }
 
-private fun transformDrinksList(drinksList: List<com.fmejiar.drinksapp.domain.response.drinks.Drink>): List<Drink> {
+private fun transformDrinksList(drinksList: List<com.fmejiar.drinksapp.data.response.drinks.Drink>): List<Drink> {
     val drinkList = ArrayList<Drink>()
     drinksList.forEach { drink ->
         drinkList.add(
@@ -59,7 +59,7 @@ private fun transformDrinksList(drinksList: List<com.fmejiar.drinksapp.domain.re
     return drinkList
 }
 
-private fun transformIngredientsList(ingredientsList: MutableList<com.fmejiar.drinksapp.domain.response.ingredients.Ingredient>): MutableList<Ingredient> {
+private fun transformIngredientsList(ingredientsList: MutableList<com.fmejiar.drinksapp.data.response.ingredients.Ingredient>): MutableList<Ingredient> {
     val ingredientList = ArrayList<Ingredient>()
     ingredientsList.forEach { ingredient ->
         ingredientList.add(

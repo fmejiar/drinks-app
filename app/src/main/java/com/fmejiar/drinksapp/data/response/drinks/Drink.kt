@@ -1,7 +1,7 @@
-package com.fmejiar.drinksapp.domain.response.drinks
+package com.fmejiar.drinksapp.data.response.drinks
 
 import android.os.Parcelable
-import com.fmejiar.drinksapp.domain.response.ingredients.Ingredient
+import com.fmejiar.drinksapp.data.response.ingredients.Ingredient
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 

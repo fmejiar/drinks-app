@@ -1,4 +1,4 @@
-package com.fmejiar.drinksapp.domain.response.ingredients
+package com.fmejiar.drinksapp.data.response.ingredients
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

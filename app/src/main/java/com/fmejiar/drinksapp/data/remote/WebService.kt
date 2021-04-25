@@ -1,6 +1,6 @@
 package com.fmejiar.drinksapp.data.remote
 
-import com.fmejiar.drinksapp.domain.response.drinks.DrinksResponse
+import com.fmejiar.drinksapp.data.response.drinks.DrinksResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
