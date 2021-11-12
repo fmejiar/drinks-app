@@ -5,10 +5,6 @@
           android:icon="@drawable/ic_baseline_local_drink_24"
           android:title="Drinks" />
 
-    <item android:id="@+id/ingredientsListFragment"
-        android:icon="@drawable/ic_ingredients"
-        android:title="Ingredients" />
-
     <item android:id="@+id/favoriteDrinksListFragment"
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="Favorites" />
